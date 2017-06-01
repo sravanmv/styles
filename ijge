@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="never">
+  <info>
+    <title>International Journal of Geoengineering</title>
+    <title-short>IJGE</title-short>
+    <id>http://csl.mendeley.com/styles/enter-unique-style-id-here/IJGE-22</id>
+    <updated>2017-06-01T17:30:06+00:00</updated>
+  </info>
+  <macro name="author short">
+    <names variable="author" suffix=",">
+      <name and="text" et-al-min="3" initialize-with="." name-as-sort-order="first"/>
+      <et-al suffix=","/>
+    </names>
+    <text macro="issue year" prefix=" "/>
+  </macro>
+  <macro name="issue year">
+    <date date-parts="year" form="text" variable="issued"/>
+  </macro>
+  <macro name="author full">
+    <names variable="author">
+      <name and="text" et-al-min="4" et-al-use-first="4" initialize-with="." name-as-sort-order="first"/>
+    </names>
+  </macro>
+  <macro name="title">
+    <choose>
+      <if type="article article-journal paper-conference manuscript" match="any">
+        <text variable="title" prefix=". &quot;" suffix="&quot;"/>
+      </if>
+      <else-if type="book thesis chapter" match="any">
+        <text variable="title" prefix=". " suffix=", "/>
+      </else-if>
+    </choose>
+  </macro>
+  <macro name="issue year biblo">
+    <choose>
+      <if type="article article-journal book thesis manuscript" match="any">
+        <date date-parts="year" form="text" variable="issued" prefix=" (" suffix=")."/>
+      </if>
+      <else>
+        <date date-parts="year" form="text" variable="issued" prefix=" (" suffix=")."/>
+      </else>
+    </choose>
+  </macro>
+  <macro name="publisher">
+    <choose>
+      <if type="book thesis report chapter" match="any">
+        <text variable="publisher" prefix=" " suffix=","/>
+        <text variable="publisher-place"/>
+      </if>
+    </choose>
+  </macro>
+  <macro name="container">
+    <choose>
+      <if type="article article-journal manuscript paper-conference" match="any">
+        <text variable="container-title" prefix=" " suffix=", "/>
+      </if>
+    </choose>
+  </macro>
+  <macro name="Volume">
+    <choose>
+      <if type="article article-journal article-magazine manuscript paper-conference" match="any">
+        <text variable="volume" prefix="Vol." suffix=" "/>
+        <text variable="issue" prefix="(" suffix=")"/>
+      </if>
+    </choose>
+  </macro>
+  <macro name="Page">
+    <choose>
+      <if type="article article-journal article-magazine book thesis" match="any">
+        <text variable="page" prefix=" pp." suffix="."/>
+      </if>
+    </choose>
+  </macro>
+  <citation>
+    <sort>
+      <key variable="author"/>
+    </sort>
+    <layout>
+      <group prefix="(" suffix=")">
+        <text macro="author short"/>
+      </group>
+    </layout>
+  </citation>
+  <bibliography>
+    <layout>
+      <group>
+        <text macro="author full"/>
+        <text macro="issue year biblo"/>
+        <text macro="title"/>
+        <text macro="publisher"/>
+        <text macro="container"/>
+        <text macro="Volume" suffix=", "/>
+        <text macro="Page"/>
+      </group>
+    </layout>
+  </bibliography>
+</style>
